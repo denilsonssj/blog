@@ -18,6 +18,11 @@ const routes: Routes = [
         loadChildren: () => import('./features/contact/contact.module')
           .then(m => m.ContactModule),
       },
+      {
+        path: 'team',
+        loadChildren: () => import('./features/team/team.module')
+          .then(m => m.TeamModule),
+      },
     ]
   },
   {
