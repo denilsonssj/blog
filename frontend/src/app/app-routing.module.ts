@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { MainLayout } from './core/layouts/main/main.layout';
-import { HomeView } from './features/home/views/home/home.view';
 
 const routes: Routes = [
   {
@@ -11,7 +10,13 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeView,
+        loadChildren: () => import('./features/home/home.module')
+          .then(m => m.HomeModule),
+      },
+      {
+        path: 'contact',
+        loadChildren: () => import('./features/contact/contact.module')
+          .then(m => m.ContactModule),
       },
     ]
   },

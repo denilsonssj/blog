@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(private route: Router) {
     this.routes = [
-      { path: '', label: 'Dashboard' },
+      { path: '', label: 'Homepage' },
       { path: 'about', label: 'About' },
       { path: 'team', label: 'Team' },
       { path: 'feed', label: 'Feed' },

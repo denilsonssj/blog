@@ -1,0 +1,71 @@
+<div class="grid place-items-center mt-20">
+    <form novalidate class="xs:w-4/5 md:w-4/5 lg:w-2/5 xl:w-2/5 2xl:w-2/5" [formGroup]="formBuilder" (ngSubmit)="onSubmit()">
+      <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+        <div class="p-5 bg-white">
+          <h3 class="xs:text-4xl md:text-4xl lg:text-5xl xl:text-4xl 2xl:text-4xl font-bold text-gray-900 my-4 text-center">Contact us</h3>
+          <div class="grid grid-cols-2 gap-6">
+            <div class="col-span-2 sm:col-span-2">
+              <label for="name" class="block text-sm font-medium text-gray-700">
+                Name
+                <span class="text-red-500">*</span>
+              </label>
+              <input type="text" 
+                     name="name"
+                     id="name"
+                     formControlName="name"
+                     placeholder="Type your name"
+                     class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                     [ngClass]="{'border-red-300 focus:ring-red-500 focus:border-red-500': hasError(formBuilder, 'name')}">
+              <label *ngIf="hasError(formBuilder, 'name')" for="name" class="block text-xs text-red-600 mt-2">
+                {{ getErrorMessage(formBuilder, 'name') }}
+              </label>
+            </div>
+    
+            <div class="col-span-2 sm:col-span-2">
+              <label for="email" class="block text-sm font-medium text-gray-700">
+                Email
+                <span class="text-red-500">*</span>
+              </label>
+              <input type="text"
+                     name="email"
+                     id="email"
+                     autocomplete="off"
+                     formControlName="email"
+                     placeholder="Type your email"
+                     class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                     [ngClass]="{'border-red-300 focus:ring-red-500 focus:border-red-500': hasError(formBuilder, 'email')}">
+              <label *ngIf="hasError(formBuilder, 'email')" for="email" class="block text-xs text-red-600 mt-2">
+                {{ getErrorMessage(formBuilder, 'email') }}
+              </label>
+            </div>
+            <div class="col-span-2 sm:col-span-2">
+              <label for="message" class="block text-sm font-medium text-gray-700">
+                Message
+                <span class="text-red-500">*</span>
+              </label>
+              <textarea id="message"
+                        name="message"
+                        rows="3"
+                        placeholder="Type your message"
+                        formControlName="message"
+                        class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
+                        [ngClass]="{'border-red-300 focus:ring-red-500 focus:border-red-500': hasError(formBuilder, 'message')}">
+              </textarea>
+              <label *ngIf="hasError(formBuilder, 'message')" for="message" class="block text-xs text-red-600 mt-2">
+                {{ getErrorMessage(formBuilder, 'message') }}
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="px-4 py-3 text-right sm:px-6">
+          <button type="submit"
+                  [disabled]="formBuilder.invalid"
+                  [ngClass]="{'opacity-25 cursor-not-allowed': formBuilder.invalid}"
+                  class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            Send
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
